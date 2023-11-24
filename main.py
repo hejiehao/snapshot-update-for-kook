@@ -46,5 +46,5 @@ async def new(msg: Message):
 GitHub Commit：[https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]}](https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]})""")
     except:
         logging.error(traceback.format_exc())
-        msg.reply(f"获取最新版本失败，以下是详细错误信息\n```\n{traceback.format_exc()}\n```")
+        await msg.reply(f"获取最新版本失败，以下是详细错误信息\n```\n{traceback.format_exc()}\n```")
 bot.run()
