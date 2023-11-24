@@ -40,7 +40,7 @@ if not config['using_ws']:  # webhook
 @bot.command(name='new')
 async def new(msg: Message):
     try:
-        newest = requests.get("https://github.com/burningtnt/HMCL-Snapshot-Update/raw/master/datas/snapshot.json")
+        newest = requests.get("https://gp.zkitefly.eu.org/https://github.com/burningtnt/HMCL-Snapshot-Update/raw/master/datas/snapshot.json")
         await msg.reply(f"""最新的版本为：{newest.json()['version']}
 下载链接：[{newest.json()['jar']}]({newest.json()['jar']})
 GitHub Commit：[https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]}](https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]})""")
