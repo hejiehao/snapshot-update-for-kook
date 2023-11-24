@@ -41,10 +41,10 @@ if not config['using_ws']:  # webhook
 async def new(msg: Message):
     try:
         newest = requests.get("https://github.com/burningtnt/HMCL-Snapshot-Update/raw/master/datas/snapshot.json")
-    except:
-        logging.error(traceback.format_exc())
-    await msg.reply(f"""最新的版本为：{newest.json()['version']}
+        await msg.reply(f"""最新的版本为：{newest.json()['version']}
 下载链接：[{newest.json()['jar']}]({newest.json()['jar']})
 GitHub Commit：[https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]}](https://github.com/huanghongxun/HMCL/commit/{newest.json()['version'][8:]})""")
-
+    except:
+        logging.error(traceback.format_exc())
+        msg.reply(f"获取最新版本失败，以下是详细错误信息\n```\n{traceback.format_exc()}\n```")
 bot.run()
